@@ -1,6 +1,5 @@
 const { Page, expect } = require ("@playwright/test");
 
-
 class NavigationPage {
 
     constructor(page) {
@@ -14,11 +13,18 @@ class NavigationPage {
     }
 
     async inlineform(){
+        
+        const data={
+            username :"James 007",
+            email :"ghanaman.com.gh"
+        };
         await this.page.getByText('Inline form').isVisible()
-        await this.page.fill('nb-card-body form input[placeholder="Jane Doe"]', "James Bond")
-        await this.page.getByPlaceholder('Email').first().fill('ghanaman.com.gh')
+        await this.page.fill('nb-card-body form input[placeholder="Jane Doe"]', data.username)
+        await this.page.getByPlaceholder('Email').first().fill(data.email)
         await this.page.click('text=Remember me')
         await this.page.click('text=SUBMIT')
+        //await this.page.waitForTimeout(50000);
+        await this.page.screenshot({path:'screenshot/inlineForm.png'})
     }
 
     async UsingtheGrid(){

@@ -1,8 +1,8 @@
 const { test, expect } = require("@playwright/test");
 const NavigationPage = require("../page-Objects/navigationPage.js").NavigationPage;
-
+ 
 test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4200/')
+    await page.goto('/')
 })
 
 test('NavigateToFormPage', async({page}) => {
@@ -17,8 +17,4 @@ test('NavigateToFormPage', async({page}) => {
  await navigateTo.TablePage();
  await navigateTo.DateSelector();
  await navigateTo.AdjustTheSlider();
-// await navigateTo.formLayoutPage();
-// await navigateTo.datePickerPage();
-// await navigateTo.smartTablesPage();
-
 });
