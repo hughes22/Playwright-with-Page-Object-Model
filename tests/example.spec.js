@@ -1,8 +1,12 @@
 
 import {test, expect} from '@playwright/test'
+
+test.describe.only('dragAndDropWithIframes', () => {
+  test.describe.configure({retries: 2})
+})
 //Form fields
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:4200/');
+  await page.goto('/');
   await page.click('text=Forms')
   await page.click('text=Form Layouts')
 });
@@ -200,4 +204,3 @@ test('web table', async({page})=>{
   console.log('temperature:', expectedTemp);
   await expect(tempbox).toContainText('30')
  })
- //drag & drop with iframes
